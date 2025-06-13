@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "f8e5a234-bd46-4a17-a862-15c99f84b53c",
+		"name": "OID Batch Processing",
+		"description": "Collection for triggering OID batch processing operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Process All OIDs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/oids/process/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"oids",
+						"process",
+						"all"
+					]
+				},
+				"description": "Process all OIDs that need updating (no current response)"
+			},
+			"response": []
+		},
+		{
+			"name": "Process Single OID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/oids/process/{{oid}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"oids",
+						"process",
+						"{{oid}}"
+					]
+				},
+				"description": "Process a single OID by specifying its value in the path"
+			},
+			"response": []
+		},
+		{
+			"name": "Process Batch of OIDs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"batch-{{$timestamp}}\",\n    \"ids\": [\n        \"2.16.840.1.113883.6.1:12345\",\n        \"2.16.840.1.113883.6.1:67890\",\n        \"2.16.840.1.113883.6.1:24680\"\n    ],\n    \"revisionDate\": \"2025-05-01\",\n    \"count\": 10,\n    \"fields\": [\n        \"COMPONENT\",\n        \"PROPERTY\",\n        \"TIME_ASPCT\"\n    ],\n    \"includeInvalid\": \"false\",\n    \"includeRetired\": \"false\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/oids/process/batch",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"oids",
+						"process",
+						"batch"
+					]
+				},
+				"description": "Process a batch of OIDs by providing their IDs in the request body"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Scheduler Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/scheduler/oidProcessing",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"scheduler",
+						"oidProcessing"
+					]
+				},
+				"description": "Get the current scheduling configuration for OID processing"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Scheduler Config",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jobName\": \"oidProcessing\",\n    \"cronExpression\": \"0 0/30 * * * ?\",\n    \"enabled\": true\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/scheduler/oidProcessing",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"scheduler",
+						"oidProcessing"
+					]
+				},
+				"description": "Update the scheduling configuration for OID processing"
+			},
+			"response": []
+		},
+		{
+			"name": "Enable OID Processing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/scheduler/oidProcessing/enable",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"scheduler",
+						"oidProcessing",
+						"enable"
+					]
+				},
+				"description": "Enable the scheduled OID processing job"
+			},
+			"response": []
+		},
+		{
+			"name": "Disable OID Processing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/scheduler/oidProcessing/disable",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"scheduler",
+						"oidProcessing",
+						"disable"
+					]
+				},
+				"description": "Disable the scheduled OID processing job"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "oid",
+			"value": "2.16.840.1.113883.6.1:12345",
+			"type": "string"
+		}
+	]
+}

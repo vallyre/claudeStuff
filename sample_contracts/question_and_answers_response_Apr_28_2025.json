@@ -1,0 +1,106 @@
+/** 
+ 04/28/2025   
+ Example Response Structure for Question and Answers
+ Removed "timeStamp"
+ "data" is changed to List
+ "revision" is added for version details
+
+**/
+
+{
+    "responseId": "7b0afc2d-f2c8-4d8e-9b6f-a9c32f61b5a5",
+    "requestId": "550e8400-e29b-41d4-a716-446655440000",
+    "status": "success",
+    "data": [
+        {
+            "oId": "2.16.840.1.113762.1.4.1247.240",
+            "revision": "20230301",
+            "results": [
+                {
+                    "isQuestionnaire": true
+                },
+                {
+                    "id": "e6c67f5b-128g-0625-057c-ed94bd73111c",
+                    "name": "Example Question 1",
+                    "code": "98765-4",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": [
+                        {
+                            "id": "e6c67f5b-128g-0625-057c-10a8bd73111c",
+                            "name": "Option A",
+                            "code": "LA33220-7"
+                        },
+                        {
+                            "id": "e6c67f5b-128g-0625-057c-10b4bd73111c",
+                            "name": "Option B",
+                            "code": "LA33221-5"
+                        }
+                    ]
+                }
+            ],
+            "nextCursor": null
+        },
+        {
+            "oId": "2.16.840.1.113762.1.4.1247.237",
+            "revision": "20230401",
+            "results": [
+                {
+                    "isQuestionnaire": true
+                },
+                {
+                    "id": "d5b56d4b-017f-0514-946b-dc83ac62000b",
+                    "name": "Devices used in household to access the internet for learning",
+                    "code": "99802-1",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": [
+                        {
+                            "id": "d5b56d4b-017f-0514-946b-09a7ac62000b",
+                            "name": "A laptop, chromebook, or desktop computer",
+                            "code": "LA33217-3"
+                        },
+                        {
+                            "id": "d5b56d4b-017f-0514-946b-09b3ac62000b",
+                            "name": "A tablet or iPad",
+                            "code": "LA33218-1"
+                        },
+                        {
+                            "id": "d5b56d4b-017f-0514-946b-09c1ac62000b",
+                            "name": "A smartphone",
+                            "code": "LA33219-9"
+                        }
+                    ]
+                },
+                {
+                    "id": "d5b56d4b-017f-0514-946b-dc93ac62000b",
+                    "name": "Number of laptops or desktops used in household for learning",
+                    "code": "99803-9",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": []
+                },
+                {
+                    "id": "d5b56d4b-017f-0514-946b-dc5aac62000b",
+                    "name": "Do children in this household have access to the internet during the day to support learning",
+                    "code": "99800-5",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": [
+                        {
+                            "id": "2d0ef1d8-0174-9f32-b0d9-20920a030041",
+                            "name": "Yes",
+                            "code": "LA33-6"
+                        },
+                        {
+                            "id": "2d0ef1d8-0174-9f32-b0d9-20860a030041",
+                            "name": "No",
+                            "code": "LA32-8"
+                        }
+                    ]
+                }
+            ],
+            "nextCursor": null
+        }
+    ]
+}

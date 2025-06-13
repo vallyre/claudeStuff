@@ -1,0 +1,32 @@
+/** 
+ 04/28/2025   
+ Example Request Structure 
+ Removed "timeStamp", and "requestingService"
+ "Priority" is optional
+ "revision" is added for version details and it's optional
+ "Oids" is a list with OId and Revision
+
+**/
+
+Request: Parameters { Make it list
+}
+requestingService: remove it
+timestamp: remove it
+priority:
+{
+    "requestId": "550e8400-e29b-41d4-a716-446655440000",
+    "operation": "getStandardCodes",
+    "parameters": {
+        "oIds": [
+            {
+                "oId": "2.16.840.1.113762.1.4.1247.240",
+                "revision": "" // Leaving is empty returns LATEST
+            },
+            {
+                "oId": "2.16.840.1.113762.1.4.1247.241",
+                "revision": "20230401" // Pass the revision Id for specific version's data
+            }
+        ]
+    },
+    "priority": "normal" // Optional
+}

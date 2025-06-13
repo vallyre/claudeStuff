@@ -1,0 +1,6 @@
+oid,code_group_content_set,code_group_content_set_version,code_sub_type,fhir_identifier,hl7_uri,code,code_group_name,code_group_revision_name,revision_start,is_active,status,service_method_name
+2.16.840.1.113883.6.1:12345,LOINC,2.73,LAB,http://loinc.org,urn:oid:2.16.840.1.113883.6.1,12345,Laboratory Observations,2023-12,2023-12-15,true,ACTIVE,processLoincOid
+2.16.840.1.113883.6.96:123456,SNOMED-CT,20220731,FINDING,http://snomed.info/sct,urn:oid:2.16.840.1.113883.6.96,123456,Clinical Findings,2022-07,2022-07-31,true,ACTIVE,processSnomedOid
+2.16.840.1.113883.6.88:54321,RXNORM,202305,DRUG,http://www.nlm.nih.gov/research/umls/rxnorm,urn:oid:2.16.840.1.113883.6.88,54321,Prescription Drugs,2023-05,2023-05-01,true,ACTIVE,processRxNormOid
+2.16.840.1.113883.6.90:A12.3,ICD-10-CM,2023,DIAGNOSIS,http://hl7.org/fhir/sid/icd-10-cm,urn:oid:2.16.840.1.113883.6.90,A12.3,Diagnoses,2023,2023-01-01,true,ACTIVE,processIcdOid
+2.16.840.1.113883.6.285:99214,CPT,2023,PROCEDURE,http://www.ama-assn.org/go/cpt,urn:oid:2.16.840.1.113883.6.285,99214,Procedures,2023,2023-01-01,true,ACTIVE,defaultProcessOid

@@ -1,0 +1,51 @@
+/** 
+ 04/28/2025   
+ Example Response Structure for Simple List 
+ Removed "timeStamp"
+ "data" is changed to List
+ "revision" is added for version details
+
+**/
+{
+    "responseId": "8d1bfe3a-c9f7-5e2d-8a7c-b4d23e71a9c6",
+    "requestId": "550e8400-e29b-41d4-a716-446655440000",
+    "status": "success",
+    "data": [
+        {
+            "oId": "2.16.840.1.113762.1.4.1247.240",
+            "revision": "20230301",
+            "results": [
+                {
+                    "isQuestionnaire": false
+                },
+                {
+                    "id": "a1b2c3d4-567e-89f0-123g-456h789i000j",
+                    "name": "Example Standard Code 1",
+                    "code": "12345-6",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": []
+                }
+            ],
+            "nextCursor": null
+        },
+        {
+            "oId": "2.16.840.1.113762.1.4.1247.237",
+            "revision": "20230401",
+            "results": [
+                {
+                    "isQuestionnaire": false
+                },
+                {
+                    "id": "d5b56d4b-017f-0514-946b-dc83ac62000b",
+                    "name": "Devices used in household to access the internet for learning",
+                    "code": "99802-1",
+                    "definition": null,
+                    "codeSystemId": "loinc",
+                    "options": []
+                }
+            ],
+            "nextCursor": null
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+erDiagram
+    hli_api_config ||--o{ oid_master : "configures"
+    oid_master ||--o{ oid_hli_api_response : "has"
+    oid_master ||--o{ api_consumer_response : "has"
+    oid_master ||--o{ api_consumer_request_log : "tracked_in"
+    oid_master ||--o{ api_consumer_oid_request_log : "tracked_in"
+    api_consumer_request_type ||--o{ api_consumer_request_log : "categorizes"
+    hli_api_config ||--o{ oid_batch_process_log : "configures"
+
+    hli_api_config {
+        int id PK
+        varchar config_name UK
+        int retry_limit
+        int retry_interval_ms
+        int max_response_time_ms
+        int batch_size
+        varchar api_base_url
+        int timeout_ms
+        timestamp created_at
+        timestamp updated_at
+        varchar created_by
+        varchar updated_by
+        boolean is_active
+    }
+
+    oid_master {
+        int id PK
+        varchar oid UK
+        varchar code_group_content_set
+        varchar code_group_content_set_version
+        varchar code_sub_type
+        varchar fhir_identifier
+        varchar hl7_uri
+        varchar code
+        varchar group_name
+        varchar code_group_revision_name
+        timestamp revision_start
+        timestamp revision_end
+        varchar backend_cache_key
+        boolean backend_is_cached
+        timestamp backend_redis_cache_expiry
+        boolean consumer_is_cached
+        timestamp consumer_redis_cache_expiry
+        int consumer_cache_hits
+        int hli_api_config_id FK
+        boolean is_active
+        varchar status
+        timestamp last_status_update
+        timestamp created_at
+        timestamp updated_at
+        timestamp last_api_call
+        int api_call_count
+    }
+
+    oid_hli_api_response {
+        int id PK
+        int oid_master_id FK
+        jsonb api_response
+        int response_time_ms
+        int http_status_code
+        timestamp created_at
+        int version
+        boolean is_current
+    }
+
+    api_consumer_response {
+        int id PK
+        int oid_master_id FK
+        jsonb consumer_response
+        timestamp created_at
+        timestamp updated_at
+        int version
+        boolean is_current
+    }
+
+    api_consumer_request_type {
+        int id PK
+        varchar type_name UK
+        text description
+        boolean requires_oid
+        jsonb additional_params
+        int cache_ttl_seconds
+        timestamp created_at
+        timestamp updated_at
+        boolean is_active
+    }
+
+    api_consumer_request_log {
+        int id PK
+        timestamp request_timestamp
+        timestamp response_timestamp
+        int request_type_id FK
+        varchar request_id
+        int oid_master_id FK
+        varchar request_ip
+        jsonb additional_params
+        int http_status_code
+        int response_time_ms
+        boolean cache_hit
+        text error_message
+    }
+
+    api_consumer_oid_request_log {
+        int id PK
+        int oid_master_id FK
+        timestamp request_timestamp
+        timestamp response_timestamp
+        int response_time_ms
+        int http_status_code
+        int retry_count
+        text error_message
+        jsonb request_headers
+        jsonb request_params
+        boolean success
+    }
+
+    oid_batch_process_log {
+        int id PK
+        varchar batch_id
+        int hli_api_config_id FK
+        timestamp batch_start_time
+        timestamp batch_end_time
+        int total_oids
+        int successful_oids
+        int failed_oids
+        varchar status
+        text error_message
+    }
+
+    cache_statistics {
+        int id PK
+        date date
+        int hour
+        int backend_cache_hits
+        int backend_cache_misses
+        numeric backend_cache_hit_rate
+        int consumer_cache_hits
+        int consumer_cache_misses
+        numeric consumer_cache_hit_rate
+        numeric redis_memory_usage_mb
+        int avg_cached_response_time_ms
+        int avg_uncached_response_time_ms
+        int p95_response_time_ms
+        int p99_response_time_ms
+    }

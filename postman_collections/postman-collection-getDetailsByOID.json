@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "b5e7a1f2-b5a4-4b8b-8a9c-6a45d9c3e4f2",
+		"name": "OidMaster API",
+		"description": "Collection for testing OidMaster API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get OidMasters by List of OIDs (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"2.16.840.1.113883.4.642.3.241\", \"2.16.840.1.113883.4.642.3.17\"]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/by-oids",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"by-oids"
+					]
+				},
+				"description": "Get OidMaster records by providing a list of OIDs in the request body"
+			},
+			"response": []
+		},
+		{
+			"name": "Get OidMasters by List of OIDs (GET)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/by-oids?oids=2.16.840.1.113883.4.642.3.241,2.16.840.1.113883.4.642.3.17",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"by-oids"
+					],
+					"query": [
+						{
+							"key": "oids",
+							"value": "2.16.840.1.113883.4.642.3.241,2.16.840.1.113883.4.642.3.17"
+						}
+					]
+				},
+				"description": "Get OidMaster records by providing a comma-separated list of OIDs as a URL parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All OidMasters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters"
+					]
+				},
+				"description": "Get all OidMaster records"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Active OidMasters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/active",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"active"
+					]
+				},
+				"description": "Get all active OidMaster records"
+			},
+			"response": []
+		},
+		{
+			"name": "Get OidMaster by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"1"
+					]
+				},
+				"description": "Get a specific OidMaster record by its ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Get OidMaster by OID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/oid/2.16.840.1.113883.4.642.3.241",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"oid",
+						"2.16.840.1.113883.4.642.3.241"
+					]
+				},
+				"description": "Get a specific OidMaster record by its OID string"
+			},
+			"response": []
+		},
+		{
+			"name": "Get OidMasters by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/code/fhir-composition-status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"code",
+						"fhir-composition-status"
+					]
+				},
+				"description": "Get OidMaster records by code"
+			},
+			"response": []
+		},
+		{
+			"name": "Search OidMasters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/search?term=composition",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"search"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "composition"
+						}
+					]
+				},
+				"description": "Search for OidMaster records by code or code group name"
+			},
+			"response": []
+		},
+		{
+			"name": "Get OidMasters by Config ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/config/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"config",
+						"1"
+					]
+				},
+				"description": "Get OidMaster records by HLI API Config ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Create OidMaster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"oid\": \"2.16.840.1.113883.4.642.3.999\",\n    \"codeGroupContentSet\": \"HL FHIR\",\n    \"codeGroupContentSetVersion\": \"4.0.1\",\n    \"codeSubType\": \"Code Group\",\n    \"fhirIdentifier\": \"http://hl7.org/fhir/ValueSet/example-test\",\n    \"hl7Uri\": \"http://hl7.org/fhir/ValueSet/example-test\",\n    \"code\": \"fhir-example-test\",\n    \"codeGroupName\": \"ExampleTest\",\n    \"codeGroupRevisionName\": \"4.0.1 10/30/2019\",\n    \"hliApiConfigId\": 1,\n    \"isActive\": true,\n    \"status\": \"ACTIVE\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters"
+					]
+				},
+				"description": "Create a new OidMaster record"
+			},
+			"response": []
+		},
+		{
+			"name": "Update OidMaster",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"oid\": \"2.16.840.1.113883.4.642.3.999\",\n    \"codeGroupContentSet\": \"HL FHIR\",\n    \"codeGroupContentSetVersion\": \"4.0.1\",\n    \"codeSubType\": \"Code Group\",\n    \"fhirIdentifier\": \"http://hl7.org/fhir/ValueSet/example-test-updated\",\n    \"hl7Uri\": \"http://hl7.org/fhir/ValueSet/example-test-updated\",\n    \"code\": \"fhir-example-test-updated\",\n    \"codeGroupName\": \"ExampleTestUpdated\",\n    \"codeGroupRevisionName\": \"4.0.1 10/30/2019\",\n    \"hliApiConfigId\": 1,\n    \"isActive\": true,\n    \"status\": \"ACTIVE\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"1"
+					]
+				},
+				"description": "Update an existing OidMaster record"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete OidMaster",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"1"
+					]
+				},
+				"description": "Delete an OidMaster record"
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate OidMaster",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oid-masters/1/deactivate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oid-masters",
+						"1",
+						"deactivate"
+					]
+				},
+				"description": "Deactivate an OidMaster record (mark as inactive)"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string",
+			"description": "Base URL for the API"
+		}
+	]
+}

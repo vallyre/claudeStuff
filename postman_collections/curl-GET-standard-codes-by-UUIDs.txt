@@ -1,0 +1,15 @@
+curl --location 'http://localhost:8080/api/v1/standard-codes/responses/search' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=367DF526EF641BA5ED304CF9D422709E' \
+--data '{
+    "operation": "SEARCH",
+    "parameters": {
+      "uuids": [
+        "89916142-7ea8-4cdd-b313-58131b297835",
+        "ded9327f-8d0f-4148-a383-f291047831c4",
+        "2ccc0965-f500-4602-bd91-83029b42b596",
+        "4861b05d-c84e-44a0-aa29-0a7e981b84fd"
+      ]
+    },
+    "priority": "HIGH"
+  }'

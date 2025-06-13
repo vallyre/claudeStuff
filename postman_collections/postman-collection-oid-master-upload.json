@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "a8e5b234-bd46-4a17-a862-15c99f84b53c",
+		"name": "OID Master Upload",
+		"description": "Collection for OID Master bulk upload operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload CSV File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/path/to/your/oid_csv_file.csv",
+							"description": "CSV file containing OID data"
+						},
+						{
+							"key": "hliApiConfigId",
+							"value": "1",
+							"description": "Optional HLI API Config ID",
+							"type": "text"
+						},
+						{
+							"key": "batchSize",
+							"value": "100",
+							"description": "Optional batch size",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/oid-masters/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oid-masters",
+						"upload",
+						"csv"
+					]
+				},
+				"description": "Upload a CSV file containing OID Master records for batch processing"
+			},
+			"response": []
+		},
+		{
+			"name": "Get CSV Template",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/oid-masters/upload/template",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oid-masters",
+						"upload",
+						"template"
+					]
+				},
+				"description": "Download a CSV template for OID Master bulk upload"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All OID Masters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/oid-masters",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oid-masters"
+					]
+				},
+				"description": "Get all OID Master records"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Active OID Masters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/oid-masters/active",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oid-masters",
+						"active"
+					]
+				},
+				"description": "Get all active OID Master records"
+			},
+			"response": []
+		},
+		{
+			"name": "Process All OIDs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/oids/process/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"oids",
+						"process",
+						"all"
+					]
+				},
+				"description": "Process all OIDs that need updating (no current response)"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

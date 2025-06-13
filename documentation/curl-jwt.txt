@@ -1,0 +1,6 @@
+curl --location 'https://ikmg2.oktapreview.com/oauth2/aus15z2gtyeApTTXf1d7/v1/token' \
+--header 'Authorization: Basic MG9hbWp5dXJzalFsYkV6Q1gxZDc6Sjg5eGMydVNOdUc3WW52WXZYVk9KeEZhWUs1M21YSnNnOWE2cGRJN0dRckZXNVFmVjN5RklnNE5fVFdCckhvMw==' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: JSESSIONID=1E89530E57D4B785F78E3D41EC30806B; JSESSIONID=D5C83CCFB15EC233D8B8E62B301A69B5' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'scope=ccmt:api'

@@ -1,0 +1,14 @@
+curl --location 'https://cmt-dev.mckesson.com/standard-code-gatway/api/v1/standard-codes/responses/search' \
+--header 'Content-Type: application/json' \
+--header 'scope: cmt:api' \
+--header 'Authorization: Bearer eyJraWQiOiJJZzlpLXJBcUlzRHZ3eGxzSzd5V3dRaDhCSldNY0dRSEhQUlptM29qa19zIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULjZRcXB0d0dmb21vRkw5M1FWeXF3eXVUYnRUT3c2Uzl6N01PUUFhVGRNZHciLCJpc3MiOiJodHRwczovL2lrbWcyLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvYXVzMTV6Mmd0eWVBcFRUWGYxZDciLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo4MDgwIiwiaWF0IjoxNzQ4NTUyMzUxLCJleHAiOjE3NDg1NTU5NTEsImNpZCI6IjBvYW1qeXVyc2pRbGJFekNYMWQ3Iiwic2NwIjpbImNjbXQ6YXBpIl0sInN1YiI6IjBvYW1qeXVyc2pRbGJFekNYMWQ3In0.DGj8M8bhaA1FmsH_r6WmaC0BQvra0_ihHgXBvu9qTejNHBNQqca58Tfp7DV0kRI0piKekFXUVr9M6oqse0tctBAYCFeyo2B3Qpq_W2oWhgoJ_P5aIX2vDx-IQZHP6N6IXlnY7J72qegOEd-W_-BCJTZH38IiARabhLOp1CX-N4BCbekemnDO_MOTfkdAo3bnBQZjizgH8BMhcgRpmX8XF5U8DpZ6cgb7yyNsgSibhjki8o5gH4MhRfDDti61OCcxWy1JfbxQSDb4ZhmLRJfrhGA8i30Ar_2UUBRVbP1JC_EZJINX6l_jc-aC-BqGC-Zcx8DCoDHutmqiCtN4EZWa6g' \
+--header 'Cookie: incap_ses_179_3207440=N23PHB/10Ws2k7kK4e97AozKOGgAAAAAtbQsgufocvCAVUb4Hvqwxw==; visid_incap_3207440=3zfnSZ2nSrOW/xDD38Be3rj6GWgAAAAAQUIPAAAAAAA/N64Hi3y7JC1QGiYgrXco' \
+--data '{
+    "operation": "SEARCH",
+    "parameters": {
+      "uuids": [
+        "eee6b8e3-9deb-4743-86cc-6906363e7729"
+      ]
+    },
+    "priority": "HIGH"
+  }'

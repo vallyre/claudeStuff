@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "f3e8d4a6-1c2b-4e67-9f2c-234a1b2c3d4e",
+		"name": "Standard Codes Gateway Service",
+		"description": "A collection for testing the Standard Codes Gateway Service API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Standard Codes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{requestId}}",
+						"description": "Unique identifier for request tracing"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{correlationId}}",
+						"description": "ID for cross-service correlation"
+					},
+					{
+						"key": "X-Source-System",
+						"value": "postman-test",
+						"description": "Identifier of calling service"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestId\": \"{{requestId}}\",\n    \"operation\": \"getStandardCodes\",\n    \"parameters\": {\n        \"oidRevisions\": [\n            {\n                \"oId\": \"2.16.840.1.113762.1.4.1247.240\",\n                \"revision\": \"\"  // Empty string returns the latest revision\n            },\n            {\n                \"oId\": \"2.16.840.1.113762.1.4.1247.237\",\n                \"revision\": \"20230401\"\n            }\n        ]\n    },\n    \"priority\": \"normal\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/standard-codes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"standard-codes"
+					]
+				},
+				"description": "Retrieve standard codes based on OID-revision pairs"
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{requestId}}"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"value": "{{correlationId}}"
+							},
+							{
+								"key": "X-Source-System",
+								"value": "postman-test"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestId\": \"{{requestId}}\",\n    \"operation\": \"getStandardCodes\",\n    \"parameters\": {\n        \"oidRevisions\": [\n            {\n                \"oId\": \"2.16.840.1.113762.1.4.1247.240\",\n                \"revision\": \"\"\n            },\n            {\n                \"oId\": \"2.16.840.1.113762.1.4.1247.237\",\n                \"revision\": \"20230401\"\n            }\n        ]\n    },\n    \"priority\": \"normal\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/standard-codes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"standard-codes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseId\": \"8d1bfe3a-c9f7-5e2d-8a7c-b4d23e71a9c6\",\n    \"requestId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"timestamp\": \"2025-04-29T00:58:47Z\",\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"oId\": \"2.16.840.1.113762.1.4.1247.240\",\n            \"revision\": \"20230301\",\n            \"results\": [\n                {\n                    \"isQuestionnaire\": true\n                },\n                {\n                    \"id\": \"e6c67f5b-128g-0625-057c-ed94bd73111c\",\n                    \"name\": \"Example Question 1\",\n                    \"code\": \"98765-4\",\n                    \"definition\": null,\n                    \"codeSystemId\": \"loinc\",\n                    \"options\": [\n                        {\n                            \"id\": \"e6c67f5b-128g-0625-057c-10a8bd73111c\",\n                            \"name\": \"Option A\",\n                            \"code\": \"LA33220-7\"\n                        },\n                        {\n                            \"id\": \"e6c67f5b-128g-0625-057c-10b4bd73111c\",\n                            \"name\": \"Option B\",\n                            \"code\": \"LA33221-5\"\n                        }\n                    ]\n                }\n            ],\n            \"nextCursor\": null\n        },\n        {\n            \"oId\": \"2.16.840.1.113762.1.4.1247.237\",\n            \"revision\": \"20230401\",\n            \"results\": [\n                {\n                    \"isQuestionnaire\": false\n                },\n                {\n                    \"id\": \"d5b56d4b-017f-0514-946b-dc83ac62000b\",\n                    \"name\": \"Devices used in household to access the internet for learning\",\n                    \"code\": \"99802-1\",\n                    \"definition\": null,\n                    \"codeSystemId\": \"loinc\",\n                    \"options\": []\n                }\n            ],\n            \"nextCursor\": null\n        }\n    ],\n    \"message\": null,\n    \"errors\": null,\n    \"error\": null,\n    \"isSuccess\": true\n}"
+				},
+				{
+					"name": "Error Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{requestId}}"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"value": "{{correlationId}}"
+							},
+							{
+								"key": "X-Source-System",
+								"value": "postman-test"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestId\": \"{{requestId}}\",\n    \"operation\": \"invalidOperation\",\n    \"parameters\": {\n        \"oidRevisions\": [\n            {\n                \"oId\": \"2.16.840.1.113762.1.4.1247.240\",\n                \"revision\": \"\"\n            }\n        ]\n    },\n    \"priority\": \"normal\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/standard-codes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"standard-codes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseId\": \"7b0afc2d-f2c8-4d8e-9b6f-a9c32f61b5a5\",\n    \"requestId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"timestamp\": \"2025-04-29T00:58:47Z\",\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Operation must be 'getStandardCodes'\",\n    \"errors\": [\n        {\n            \"message\": \"Operation must be 'getStandardCodes'\"\n        }\n    ],\n    \"error\": {\n        \"code\": \"INVALID_OPERATION\",\n        \"message\": \"Operation must be 'getStandardCodes'\",\n        \"details\": null\n    },\n    \"isSuccess\": false\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Generate a request ID if none exists",
+					"if (!pm.variables.get('requestId')) {",
+					"    pm.variables.set('requestId', pm.variables.replaceIn('{{$guid}}'));",
+					"}",
+					"",
+					"// Use the same value for correlation ID if none exists",
+					"if (!pm.variables.get('correlationId')) {",
+					"    pm.variables.set('correlationId', pm.variables.get('requestId'));",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Test for successful response",
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"// Validate response structure",
+					"pm.test(\"Response has required fields\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData).to.have.property('responseId');",
+					"    pm.expect(jsonData).to.have.property('requestId');",
+					"    pm.expect(jsonData).to.have.property('status');",
+					"});",
+					"",
+					"// Check if requestId matches",
+					"pm.test(\"Request ID matches\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.requestId).to.eql(pm.variables.get('requestId'));",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string",
+			"description": "Base URL for the Standard Codes Gateway Service"
+		},
+		{
+			"key": "requestId",
+			"value": "",
+			"type": "string",
+			"description": "Unique identifier for the request"
+		},
+		{
+			"key": "correlationId",
+			"value": "",
+			"type": "string",
+			"description": "ID for cross-service correlation"
+		}
+	]
+}
